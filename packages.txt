@@ -1,0 +1,10 @@
+nano
+wofi
+hyprlock
+swww
+fd
+nwg-dock-hyprland
+kitty
+python3
+python-pip
+nautilus
