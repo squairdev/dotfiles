@@ -1,10 +1,9 @@
-
 # `squairdev/dotfiles`
 <b style="font-size=40px;">My custom Dotfiles for Hyprland.</b>
 ## Installation
 Simply run this command in the linux terminal:
 
-`bash <(curl -s https://github.com/squairdev/dotfiles/raw/refs/heads/main/install.sh)`
+`bash <(curl -s https://hypr.squair.xyz)`
 
 ## Tested distros
 Only officially tested on Arch linux.<br>

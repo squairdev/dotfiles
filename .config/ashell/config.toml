@@ -1,5 +1,5 @@
 log_level = "warn"
-outputs = { Targets = ["DP-1", "HDMI-A-2"] }
+outputs = { Targets = ["DP-1", "DP-2","eDP-1","HDMI-A-1","HDMI-A-2"] }
 position = "Top"
 app_launcher_cmd = "walker"
 

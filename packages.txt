@@ -8,3 +8,7 @@ kitty
 python3
 python-pip
 nautilus
+fastfetch
+cava
+btop
+cmatrix
