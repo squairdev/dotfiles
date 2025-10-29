@@ -26,27 +26,26 @@ main() {
     echo -e "\e[34mInstalling packages. This will take a while...\e[0m"
     
     #yay! literally
-    pacman -S --needed base-devel
-    git clone https://aur.archlinux.org/yay.git "$USER_HOME/.config/squairdots/dotfiles/yay"
-    cd "$USER_HOME/.config/squairdots/dotfiles/yay"
-    makepkg -si --noconfirm
-    cd "$USER_HOME/.config/squairdots/dotfiles"
-    rm -rf "$USER_HOME/.config/squairdots/dotfiles/yay"
-    yay --version
+    echo -e "\e[34mInstalling yay and AUR packages...\e[0m"
+    sudo pacman -S --needed base-devel git --noconfirm
+
+    if ! command -v yay &>/dev/null; then
+        git clone https://aur.archlinux.org/yay.git "$USER_HOME/.config/squairdots/dotfiles/yay"
+        chown -R "$SUDO_USER":"$SUDO_USER" "$USER_HOME/.config/squairdots/dotfiles/yay"
+        sudo -u "$SUDO_USER" bash -c "cd '$USER_HOME/.config/squairdots/dotfiles/yay' && makepkg -si --noconfirm"
+        rm -rf "$USER_HOME/.config/squairdots/dotfiles/yay"
+    else
+        echo -e "\e[32mYay is already installed.\e[0m"
+    fi
+    bash -c "yay -S --noconfirm --needed pywal ashell"
+    echo -e "\e[32mYay Packages installed.\e[0m"
     
     #pacman packages
     sudo pacman -S - < $USER_HOME/.config/squairdots/dotfiles/packages.txt --noconfirm --needed
     echo -e "\e[32mPacman Packages installed.\e[0m"
-    
-    #yay packages
-    yay -S - < $USER_HOME/.config/squairdots/dotfiles/packages-yay.txt --noconfirm --needed
-    echo -e "\e[32mYay Packages installed.\e[0m"
 
     #pip packages
-    python3 -m venv pipinstallvm
-    source pipinstallvm/bin/activate
-    pip install -r $USER_HOME/.config/squairdots/dotfiles/packages-pip.txt
-    rm -rf pipinstallvm
+    pip install -r $USER_HOME/.config/squairdots/dotfiles/packages-pip.txt --break-system-packages #trust me, you'll be fine
     echo -e "\e[32mPip Packages installed.\e[0m"
 
     #walls

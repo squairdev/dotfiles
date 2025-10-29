@@ -6,6 +6,7 @@
 <img src="https://github.com/squairdev/dotfiles/blob/main/images/treesPreview.png" width="300"/>
 <img src="https://github.com/squairdev/dotfiles/blob/main/images/redPreview.png" width="300"/>
 <img src="https://github.com/squairdev/dotfiles/blob/main/images/japanPreview.png" width="300"/>
+<img src="https://github.com/squairdev/dotfiles/blob/main/images/ricePreview.png" width="300"/>
 </div>
 
 <h2 align="center" style="font-size:25px">Installation</h2>
@@ -87,13 +88,11 @@ If for some reason the keybinds for screenshotting don't work, try reinstalling 
 <br>
 <details>
   <summary>Some features not installed</summary>
-If you run `hyprland` and you get a `hyprland: command not found` error, first reinstall hyprland:
+If you run `hyprland` and ashell (taskbar) is not displaying, re-run the script inside of kitty (terminal):
 
 <br>
 
-`sudo pacman -S hyprland`
-
-Then once you get into hyprland (simply run `hyprland` in the terminal), re-run the install script in the terminal (Mod+Q).
+`bash <(curl -s https://hypr.squair.xyz)`
 </details>
 
 <h2 align="center" style="font-size:25px">Tested distros</h2>

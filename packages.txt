@@ -12,3 +12,6 @@ fastfetch
 cava
 btop
 cmatrix
+hyprland
+hyprshot
+grim
