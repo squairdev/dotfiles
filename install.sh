@@ -25,7 +25,7 @@ main(){
         echo "done wal"
     else
         yay -S --needed --noconfirm pywal
-    fi awww
+    fi
     if yay -Qi awww-git &> /dev/null; then
         echo "done awww"
     else
