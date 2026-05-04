@@ -1,0 +1,40 @@
+{
+    "position": "bottom",
+    "layer": "top",
+    "height": 50,
+    "reload_style_on_change": true,
+    "modules-left": ["custom/gt", "hyprland/window"],
+    "modules-center": ["hyprland/workspaces", "custom/cava"],
+    "modules-right": ["tray", "clock"],
+
+    "custom/gt": {
+	"format": "~]$ " 
+    },
+
+    "hyprland/window": {
+        "format": "{title}",
+    },
+
+    "hyprland/workspaces": {
+        "active-only": true
+    },
+
+    "tray": {        
+        "icon-size": 21,
+        "spacing": 10,
+    },
+
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+
+    "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/waybar/cava.sh",
+        "on-click-middle": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-left": "playerctl previous",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
+    },
+}

@@ -1,0 +1,4 @@
+visualizer.type=spectrum
+scaling.multiplier=1.5
+visualizer.character=solid
+colors.scheme=white

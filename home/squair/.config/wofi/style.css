@@ -1,0 +1,56 @@
+@import '/home/$USER/.cache/wal/colors-waybar.css';
+*{border-radius:16px;}
+window {
+    color: @color6;
+    font-size: 1.6rem;
+    font-family: "NotoSansMono";
+    margin: 5px;
+    background-color: alpha(@background, 0.5); 
+    border: 3px solid @color12;
+    border-radius: 16px;
+}
+
+#input {
+    background-color: alpha(@background, 0.5); 
+    all:unset;
+    padding: 20px;
+    outline: none;
+    color: @color6;
+    background-color: alpha(@background,.2);
+    border-radius: 16px;
+}
+
+#input image {
+    padding-right: 10px;
+}
+
+#outer-box {
+    border-radius: 16px;
+}
+
+#inner-box {
+    margin: 5px;
+    background-color: alpha(@background, 0.5); 
+    padding-top: 10px;
+    border-radius: 16px;
+}
+
+#text {
+    margin: 5px;
+    color: @color15;
+    outline: none;
+}
+
+#text:selected {
+    color: @color6;
+}
+
+#entry {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+#entry:selected {
+    background-color: alpha(@color12, 0.5);
+}

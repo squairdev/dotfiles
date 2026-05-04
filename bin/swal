@@ -1,0 +1,64 @@
+#!/bin/bash
+set -x
+WALLPAPER_DIR="$HOME/wallpapers"
+
+CHOSEN=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" -o -iname "*.gif" \) \
+    | sed "s|$HOME/||" \
+    | wofi -dmenu -p "Wallpaper")
+
+[ -z "$CHOSEN" ] && exit 0
+awww img "$HOME/$CHOSEN" \
+    --transition-type grow \
+    --transition-pos 0.9,0.9 \
+    --transition-step 255 \
+    --transition-fps 165
+
+wal -n -i "$HOME/$CHOSEN" --backend haishoku
+pywalfox update
+
+if pgrep -x btop > /dev/null; then
+    BTOP_THEME_DIR="${HOME}/.config/btop/themes"
+    WAL_COLORS="${HOME}/.cache/wal/colors"
+    BTOP_THEME="${BTOP_THEME_DIR}/pywal.theme"
+    mkdir -p "$BTOP_THEME_DIR"
+    mapfile -t COLORS < <(sed 's/#//' "$WAL_COLORS")
+    cat > "$BTOP_THEME" <<EOF
+theme[main_bg]="#${COLORS[0]}"
+theme[main_fg]="#${COLORS[7]}"
+theme[title]="#${COLORS[4]}"
+theme[hi_fg]="#${COLORS[2]}"
+theme[selected_bg]="#${COLORS[1]}"
+theme[selected_fg]="#${COLORS[6]}"
+theme[inactive_fg]="#${COLORS[8]}"
+theme[graph_text]="#${COLORS[7]}"
+theme[meter_bg]="#${COLORS[1]}"
+theme[proc_misc]="#${COLORS[3]}"
+theme[cpu_box]="#${COLORS[4]}"
+theme[mem_box]="#${COLORS[2]}"
+theme[net_box]="#${COLORS[3]}"
+theme[proc_box]="#${COLORS[5]}"
+theme[div_line]="#${COLORS[8]}"
+theme[temp_start]="#${COLORS[2]}"
+theme[temp_end]="#${COLORS[1]}"
+theme[cpu_start]="#${COLORS[4]}"
+theme[cpu_end]="#${COLORS[2]}"
+theme[cpu_decimal]="#${COLORS[7]}"
+theme[free_start]="#${COLORS[2]}"
+theme[free_end]="#${COLORS[4]}"
+theme[cached_start]="#${COLORS[3]}"
+theme[cached_end]="#${COLORS[5]}"
+theme[available_start]="#${COLORS[6]}"
+theme[available_end]="#${COLORS[4]}"
+theme[used_start]="#${COLORS[1]}"
+theme[used_end]="#${COLORS[3]}"
+theme[download_start]="#${COLORS[2]}"
+theme[download_end]="#${COLORS[4]}"
+theme[upload_start]="#${COLORS[3]}"
+theme[upload_end]="#${COLORS[5]}"
+theme[process_start]="#${COLORS[4]}"
+theme[process_end]="#${COLORS[2]}"
+EOF
+    pkill -USR2 btop
+fi
+pkill dunst && dunst &
+echo "$HOME/$CHOSEN" > ~/.cache/current_wallpaper

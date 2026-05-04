@@ -1,0 +1,28 @@
+@import '/home/$USER/.cache/wal/colors-waybar.css';
+
+window{
+font-family: "NotoSansMono"
+}
+window#waybar{
+    background: alpha(@background, 0.5);
+    color: @color6;
+}
+window#waybar label.module {
+padding: 0px 15px;
+}
+#workspaces button {
+background: transparent;
+border:transparent;
+box-shadow: none;
+text-shadow: none;
+color: @color6
+}
+#custom-cava {
+color: @color12
+}
+#window {
+margin-left: -5px;
+}
+#custom-gt {
+color: @color12
+}

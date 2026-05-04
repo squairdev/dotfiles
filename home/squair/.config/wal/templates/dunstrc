@@ -1,0 +1,22 @@
+[global]
+    origin = bottom-right
+    offset = (10, 10)
+    corner_radius = 16
+    show_indicators = false
+    frame_width = 2
+    follow = mouse
+    notification_limit = 10
+    sort = update
+    layer = top
+[urgency_low]
+    background = "{color0}"
+    foreground = "{color15}"
+    frame_color = "{color1}"
+[urgency_normal]
+    background = "{color0}"
+    foreground = "{color15}"
+    frame_color = "{color4}"
+[urgency_critical]
+    background = "{color0}"
+    foreground = "{color15}"
+    frame_color = "{color9}"
