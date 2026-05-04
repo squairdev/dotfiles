@@ -9,7 +9,7 @@ yayi(){
 
 main(){
     echo "installing pacman packages"
-    if sudo pacman -S git hyprland hyprlock waybar wofi dunst python-pip cava btop playerctl pipewire-pulse hyprshot awww kitty --needed --noconfirm; then
+    if sudo pacman -S git hyprland hyprlock waybar wofi dunst python-pip cava btop playerctl pipewire-pulse hyprshot kitty --needed --noconfirm; then
         echo "pacman packages installed"
     else
         echo "There was an error installing the pacman packages. Please view the error above."
@@ -22,11 +22,16 @@ main(){
         exit
     fi
     if yay -Qi python-pywal &> /dev/null; then
-        echo "installed yay packages"
+        echo "done wal"
     else
         yay -S --needed --noconfirm pywal
+    fi awww
+    if yay -Qi awww-git &> /dev/null; then
+        echo "done awww"
+    else
+        yay -S --needed --noconfirm awww-git
     fi
-
+    echo "yay packages installed"
     echo "downloading dotfiles"
     git clone https://github.com/squairdev/dotfiles.git
     echo "installing dotfiles"
