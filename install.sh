@@ -19,7 +19,6 @@ main(){
         echo "pip packages installed"
     else
         pip install haishoku --break-system-packages #no, this wont break anything 
-        exit
     fi
     if yay -Qi python-pywal &> /dev/null; then
         echo "yay packages installed"
@@ -31,7 +30,7 @@ main(){
     echo "installing dotfiles"
     cd dotfiles
     mkdir -p ~/.config
-    cp -r config/.config/ ~/.config/ 
+    cp -r config/.config/ ~/ 
     cd ..
     sudo cp -r config/bin/swal /bin/swal
     ende
