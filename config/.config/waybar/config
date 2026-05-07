@@ -5,7 +5,7 @@
     "reload_style_on_change": true,
     "modules-left": ["custom/gt", "hyprland/window"],
     "modules-center": ["hyprland/workspaces", "custom/cava"],
-    "modules-right": ["tray", "clock"],
+    "modules-right": ["tray", "clock", "custom/lk"],
 
     "custom/gt": {
 	"format": "~]$ " 
@@ -28,12 +28,17 @@
         "format-alt": "{:%a, %d. %b  %H:%M}"
     },
 
+    "custom/lk": {
+	"format": "L",
+	"on-click":"wlogout --buttons-per-row 2"
+    },
+
     "custom/cava": {
         "format": "{}",
         "exec": "~/.config/waybar/cava.sh",
         "on-click-middle": "playerctl play-pause",
         "on-click-right": "playerctl next",
-        "on-click-left": "playerctl previous",
+        "on-click": "playerctl previous",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%"
     },

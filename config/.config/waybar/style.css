@@ -7,22 +7,30 @@ window#waybar{
     background: alpha(@background, 0.5);
     color: @color6;
 }
-window#waybar label.module {
-padding: 0px 15px;
+.modules-left {
+padding-left: 15px;
+}
+.modules-right {
+padding-right: 15px;
 }
 #workspaces button {
 background: transparent;
 border:transparent;
 box-shadow: none;
 text-shadow: none;
-color: @color6
+color: @color6;
 }
 #custom-cava {
-color: @color12
+color: @color12;
+padding-left:15px;
 }
 #window {
 margin-left: -5px;
 }
 #custom-gt {
-color: @color12
+color: @color12;
+padding-right:15px;
+}
+#clock {
+padding: 15px;
 }
